@@ -1,0 +1,21 @@
+commerce_payment.commerce_payment_gateway.plugin.mercadopago_headless:
+  type: commerce_payment_gateway_configuration
+  mapping:
+    mode:
+      type: string
+      label: 'Modo'
+    access_token:
+      type: string
+      label: 'Access Token'
+    public_key:
+      type: string
+      label: 'Public Key'
+    back_url:
+      type: string
+      label: 'Back URL'
+    notification_url:
+      type: string
+      label: 'URL de notificación (Webhook)'
+    webhook_secret:
+      type: string
+      label: 'Webhook Secret (X-Signature)'

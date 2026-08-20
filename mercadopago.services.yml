@@ -1,0 +1,13 @@
+services:
+  # Specific channel for loggers.
+  logger.channel.mercadopago:
+    parent: logger.channel_base
+    arguments:
+      - 'mercadopago'
+
+  mercadopago.api:
+    class: Drupal\mercadopago\Service\MercadoPagoApiService
+    arguments:
+      - '@config.factory'
+      - '@entity_type.manager'
+      - '@logger.channel.mercadopago'

@@ -1,0 +1,4 @@
+process mercadopago payment:
+  title: 'Allow to process card payments in Mercado Pago'
+  description: 'Allow to the authenticated users to process card payment in Mercado Pago.'
+  restrict access: false

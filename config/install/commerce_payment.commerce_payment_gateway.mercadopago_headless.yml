@@ -1,0 +1,17 @@
+langcode: es
+status: true
+dependencies:
+  enforced:
+    module:
+      - mercadopago
+  module:
+    - commerce_payment
+id: mercadopago_headless
+label: 'Mercado Pago Headless (Suscripciones)'
+plugin: mercadopago_headless
+configuration:
+  mode: test
+  access_token: ''
+  public_key: ''
+  back_url: ''
+  notification_url: ''

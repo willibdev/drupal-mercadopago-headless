@@ -1,0 +1,10 @@
+name: 'Mercado Pago Subscriptions API'
+type: module
+description: 'Provides REST endpoints (Preference and Webhook/IPN) to integrate the Mercado Pago payment gateway with Drupal Commerce in headless architectures (e.g., React, Vue). Does not include frontend user interface logic.'
+package: Custom
+core_version_requirement: ^11
+dependencies:
+  - drupal:commerce
+  - commerce:commerce_order
+  - commerce:commerce_payment
+  - drupal:commerce_recurring

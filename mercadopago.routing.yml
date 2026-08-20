@@ -1,0 +1,40 @@
+# Definición de la ruta para crear un plan de MP desde una variación de producto
+mercadopago.create_subscription_plan:
+  path: '/admin/commerce/product-variation/{commerce_product_variation}/create-mp-plan'
+  defaults:
+    _controller: '\Drupal\mercadopago\Controller\SubscriptionPlanContoller::createPlan'
+    _title: 'Crear Plan de Suscripción en Mercado Pago'
+  requirements:
+    _entity_type: 'commerce_product_variation'
+    _permission: 'administer commerce_product_variation'
+
+# Endpoint to create the payment Preference (Client-side invoked)
+mercadopago.process_payment:
+  path: '/api/mercadopago/process-payment'
+  defaults:
+    _controller: '\Drupal\mercadopago\Controller\ProcessPaymentController::activateSubscription'
+    _format: 'json'
+  methods: [POST]
+  requirements:
+    _permission: 'process mercadopago payment'
+
+# Endpoint to create the payment Preference (Client-side invoked)
+mercadopago.process_subscription:
+  path: '/api/mercadopago/process-subscription'
+  defaults:
+    _controller: '\Drupal\mercadopago\Controller\ProcessSubscriptionController::manageSubscription'
+    _format: 'json'
+  methods: [POST]
+  requirements:
+    _permission: 'process mercadopago payment'
+
+# Webhook/IPN Endpoint (Invoked by Mercado Pago)
+# Acceso anónimo intencional: Mercado Pago no se autentica con sesión Drupal.
+# La autenticidad de las notificaciones se garantiza mediante la verificación
+# de la firma X-Signature en WebhookController::handle().
+mercadopago.ipn_listener:
+  path: '/api/mercadopago/webhook'
+  defaults:
+    _controller: '\Drupal\mercadopago\Controller\WebhookController::handle'
+    _format: 'json'
+  methods: [POST]

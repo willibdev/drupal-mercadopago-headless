@@ -1,0 +1,7 @@
+{
+  "name": "drupal/mercadopago",
+  "type": "drupal-module",
+  "require": {
+      "mercadopago/dx-php": "3.8.0"
+  }
+}
